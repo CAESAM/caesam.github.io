@@ -1,4 +1,3 @@
-import { WORDS } from "./words.js";
 import { FRASES } from "./frases.js";
 
 let fallosRestantes = 3;
