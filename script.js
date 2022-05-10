@@ -1,6 +1,6 @@
 import { FRASES } from "./frases.js";
 
-let fallosRestantes = 3;
+let vidasRestantes = 3;
 let currentGuess = [];
 let fraseAdivinarString = FRASES[Math.floor(Math.random() * FRASES.length)]
 let fraseAdivinarStringTrim = fraseAdivinarString.split(" ").join("")
@@ -32,7 +32,7 @@ function initBoard() {
         board.appendChild(row)
     }
     
-    intentosDiv.textContent = "Fallos restantes: "+fallosRestantes 
+    intentosDiv.textContent = "Vidas restantes: "+vidasRestantes 
 }
 
 function shadeKeyBoard(letter, color) {
@@ -65,7 +65,7 @@ function insertLetter (pressedKey) {
     else
     {
         pressedButton.classList.add("fallo")
-        fallosRestantes -= 1;
+        vidasRestantes -= 1;
     }
 
     while(indiceLetra > -1)
@@ -80,14 +80,14 @@ function insertLetter (pressedKey) {
 
     if (currentGuess.join("") === fraseAdivinarStringTrim) {
         toastr.success("Acertaste!!")
-        fallosRestantes = 0
+        vidasRestantes = 0
         return
     } else {
-        intentosDiv.textContent = "Fallos restantes: "+fallosRestantes
-        if(fallosRestantes === 1)
+        intentosDiv.textContent = "Vidas restantes: "+vidasRestantes
+        if(vidasRestantes === 1)
             intentosDiv.style.setProperty("color","red")
 
-        if (fallosRestantes === 0) {
+        if (vidasRestantes === 0) {
             toastr.info(`"${fraseAdivinarString}"`)
             toastr.error("Meeeec!! No has hacertado pero que sepas que...")
         }
@@ -116,7 +116,7 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
 
 document.addEventListener("keyup", (e) => {
 
-    if (fallosRestantes === 0) {
+    if (vidasRestantes === 0) {
         return
     }
 
