@@ -32,7 +32,11 @@ function initBoard() {
         board.appendChild(row)
     }
     
-    intentosDiv.textContent = "Vidas restantes: "+vidasRestantes 
+    intentosDiv.textContent = "Vidas restantes: "+vidasRestantes
+    
+    toastr.options = {
+        positionClass: 'toast-top-center'
+    };
 }
 
 function shadeKeyBoard(letter, color) {
