@@ -1,6 +1,6 @@
 import { FRASES } from "./frases.js";
 
-let vidasRestantes = 3;
+let vidasRestantes = 10;
 let currentGuess = [];
 let fraseAdivinarString = FRASES[Math.floor(Math.random() * FRASES.length)]
 let fraseAdivinarStringTrim = fraseAdivinarString.split(" ").join("")
